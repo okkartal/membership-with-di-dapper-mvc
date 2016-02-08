@@ -1,0 +1,34 @@
+﻿@using Infrastructure.Constraints.Constant 
+@using ViewModel 
+  
+<header class="header">
+    <div class="container clearfix">
+       
+       
+    
+
+        @{
+
+            if (Session[SessionKeys.MemberInfo] != null)
+            {
+        <div class="member_area">
+            
+            <table>
+                <tr>
+                    <td>&nbsp;&nbsp;<a href="/Members/MemberProfile/" class="member"><i class="glyphicon glyphicon-user"></i>&nbsp;@((((SessionUser)Session[SessionKeys.MemberInfo]).NickName ?? "Üyelik"))</a></td>
+                    <td>&nbsp;&nbsp;<a href="/Members/MemberProfile/">Profilim</a></td>
+                    <td>&nbsp;&nbsp;<a href="/Members/Logout/">Çıkış</a></td>
+                </tr>
+            </table>
+            
+               
+              
+            </div>
+ 
+         
+            }
+        }
+
+ 
+    </div>
+</header>

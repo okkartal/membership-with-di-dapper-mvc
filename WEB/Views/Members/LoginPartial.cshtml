@@ -1,0 +1,32 @@
+﻿@model ViewModel.RegistrationLoginViewModel
+
+
+<div class="card">
+    <h1 class="title">Login</h1>
+    @using (Html.BeginForm("Login", "Members", FormMethod.Post, new { name = "frmLogin", id = "frmLogin" }))
+    {
+        @Html.ValidationSummary(true)
+        ;
+        <span class="errorMessage">@Html.Raw(ViewBag.LoginError)</span>
+        <div class="input-container">
+            @Html.TextBoxFor(m => m.LoginViewModel.NickName)
+            @Html.LabelFor(m => m.LoginViewModel.NickName, new {@class = "control-label"})
+            <div class="bar"></div>
+        </div>
+        <div class="input-container">
+            @Html.PasswordFor(m => m.LoginViewModel.Password)
+            @Html.LabelFor(m => m.LoginViewModel.Password, new {@class = "control-label", @for = "inputSuccess"})
+            <div class="bar"></div>
+        </div>
+
+
+        <div class="button-container">
+            <button><span>Login</span></button>
+        </div>
+
+    }
+</div>
+
+
+    
+ 

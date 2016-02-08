@@ -1,0 +1,72 @@
+﻿@model   ViewModel.RegistrationLoginViewModel
+@{
+
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+ 
+<div class="container">
+    <div class="card"></div>
+    
+            @Html.Partial("LoginPartial", Model) 
+             @Html.Partial("RegisterPartial", Model.RegistrationViewModel) 
+        
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#frmLogin').submit(function () {
+            var serializedForm = $(this).serialize();
+            $.ajax({
+                url: '@Url.Action("Login")',
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+
+                    if (result.Error != null) {
+                        alert(result.Error);
+                    } else {
+                        location.href = result.Url;
+                    }
+                },
+                error: function (result) {
+                    if (result.Error != null) {
+                        alert(result.Error);
+                    }
+                 }
+
+            });
+            return false;
+        });
+
+
+
+
+
+        $('#frmRegister').submit(function () {
+            var serializedForm = $(this).serialize();
+            $.ajax({
+                url: '@Url.Action("Register")',
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+
+                    if (result.Error != null) {
+                        alert(result.Error);
+                    } else {
+                        alert("Your informations are saved.you can login");
+                    }
+                },
+                error: function (result) {
+                    if (result.Error != null) {
+                        alert(result.Error);
+                    }
+                }
+
+            });
+            return false;
+        });
+    });
+
+    </script>
+
+</div>

@@ -1,0 +1,47 @@
+﻿@model ViewModel.MemberRegisterViewModel
+
+
+
+
+
+<div class="card2">
+     
+    <h1 class="title">Register</h1>
+    @using (Html.BeginForm("Register", "Members", FormMethod.Post, new { name = "frmRegister", id = "frmRegister" }))
+    {
+        @Html.ValidationSummary(true)
+        ;
+        <span class="errorMessage">@Html.Raw(ViewBag.RegisterError)</span>
+       
+         
+
+        <div class="input-container">
+            @Html.LabelFor(m => m.NickName, new {@class = "control-label"})
+            @Html.TextBoxFor(m => m.NickName, new {@class = "form-control", @maxlength = "100"})
+
+            <div class="bar"></div>
+        </div>
+
+        <div class="input-container">
+            @Html.LabelFor(m => m.Password, new {@class = "control-label"})
+            @Html.PasswordFor(m => m.Password, new {@class = "form-control", @maxlength = "16"})
+
+            <div class="bar"></div>
+        </div>
+
+        <div class="input-container">
+            @Html.LabelFor(m => m.PasswordRepeat, new {@class = "control-label"})
+            @Html.PasswordFor(m => m.PasswordRepeat, new {@class = "form-control", @maxlength = "16"})
+
+            <div class="bar"></div>
+        </div>
+
+        <div class="button-container">
+            <button><span>Register</span></button>
+        </div>
+    }
+</div>
+
+
+ 
+    
