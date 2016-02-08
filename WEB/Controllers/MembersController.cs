@@ -108,8 +108,7 @@ namespace WEB.Controllers
             return  View(RouteKeys.RegisterPartial, new MemberRegisterViewModel());
         }
 
-        [AllowAnonymous, HttpPost]
-        [ValidateAntiForgeryToken()]
+        [AllowAnonymous, HttpPost] 
         public ActionResult Register(MemberRegisterViewModel member, string returnUrl = "")
         {
             var returnModel = new RegistrationLoginViewModel()
